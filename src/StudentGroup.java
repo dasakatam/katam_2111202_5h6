@@ -25,48 +25,147 @@ public class StudentGroup implements StudentArrayOperation {
 
 	@Override
 	public Student[] getStudents() {
+                    
+                      
+                      Scanner sc=new Scanner(system.in);
+                       for(int i=0;i<students.length();i++)
+                        { 
+                           students[i]=sc.nextChar();
+                         }
+                          
 		// Add your implementation here
 		return null;
 	}
 
 	@Override
 	public void setStudents(Student[] students) {
+                         
+                     
+                         try{
+                           if(students==NULL)
+                          { throw Exception e;
+                           }
+                          students[index]=student;
+                     }
+                  
+                          catch IOException(Exception e)
+                          {
+                            System.out.println("illegal exception");
+                           }
 		// Add your implementation here
 	}
 
 	@Override
 	public Student getStudent(int index) {
+                                 
+                         try{
+                           if(index<0||index=>students.length())
+                          { throw Exception e;
+                           }
+                       
+                     }
+                     
+                          catch IOException(Exception e)
+                          {
+                            System.out.println("illegal exception");
+                           }
+                        
 		// Add your implementation here
 		return null;
 	}
 
 	@Override
 	public void setStudent(Student student, int index) {
+       
+                    try{
+                           if(index<0||index=>students.length())
+                          { throw Exception e;
+                           }
+                       
+                     }
+                  catch IOException(Exception e)
+                          {
+                            System.out.println("illegal exception");
+                           }
 		// Add your implementation here
 	}
 
 	@Override
 	public void addFirst(Student student) {
+   try{
+                           if(index<0||index=>students.length())
+                          { throw Exception e;
+                           }
+                       else students[0]=student;
+                     }
+                  catch IOException(Exception e)
+                          {
+                            System.out.println("illegal exception");
+                           }
+		
+	
 		// Add your implementation here
 	}
 
 	@Override
 	public void addLast(Student student) {
+                   try{
+                           if(index<0||index=>students.length())
+                          { throw Exception e;
+                           }
+                      else{
+                         int i=students.length();
+                   students[i]=student;}
+                     }
+                  catch IOException(Exception e)
+                          {
+                            System.out.println("illegal exception");
+                           }
+
 		// Add your implementation here
 	}
 
 	@Override
 	public void add(Student student, int index) {
+                        try{
+                           if(index<0||index=>students.length())
+                          { throw Exception e;
+                           }
+                       else
+                        { students[index]= students[index]+student;}
+ 
+                     }
+                  catch IOException(Exception e)
+                          {
+                            System.out.println("illegal exception");
+                           }
+                              
 		// Add your implementation here
 	}
 
 	@Override
-	public void remove(int index) {
+	public void remove(int index) {  
+        for(int i=0; i<students.length() ; i++)
+          if (students[index].equals(index))
+            {
+                  remove(i);
+                 return true;
+                         }
+                         return false;
+                        
 		// Add your implementation here
 	}
 
 	@Override
 	public void remove(Student student) {
+  for(int i=0; i<students.length() ; i++)
+          if (students[student].equals(student))
+            {
+                  remove(i);
+                 return true;
+                         }
+                         return false;
+                        
 		// Add your implementation here
 	}
 
@@ -77,7 +176,19 @@ public class StudentGroup implements StudentArrayOperation {
 
 	@Override
 	public void removeFromElement(Student student) {
-		// Add your implementation here
+		
+                      try{
+                           if(index<0||index=>students.length())
+                          { throw Exception e;
+                           }
+                       else
+                        { students[index]= students[index]+student;}
+ 
+                     }
+                  catch IOException(Exception e)\
+                          {
+                            System.out.println("illegal exception");
+                           }// Add your implementation here
 	}
 
 	@Override
