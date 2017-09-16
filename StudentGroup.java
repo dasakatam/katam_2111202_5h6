@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.stream.Stream;
 
 /**
  * A fix-sized array of students
@@ -91,12 +92,6 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void add(Student student, int index) {
 		// Add your implementation here
-		/**
-		 * Appends the specified element to the specified position of this array if
-		 * student == null method should throw IllegalArgumentException if index
-		 * lower than 0 or index higher/equal students.length method should throw
-		 * IllegalArgumentException
-		 */
 		
 		if (student == null){
 			throw new IllegalArgumentException("");
@@ -111,41 +106,111 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void remove(int index) {
 		// Add your implementation here
+
+		if(index < 0 || index >= students.length){
+			throw new IllegalArgumentException("IllegalArgumentException index must be greater than 0 or " + (students.length-1));
+		}
+		
+		ArrayList<Student> tempArray = new ArrayList<Student>(Arrays.asList(students));
+		tempArray.remove(index);
+		students = (Student[]) tempArray.toArray();
+			
 	}
 
 	@Override
 	public void remove(Student student) {
 		// Add your implementation here
+		
+		if (student == null){
+			throw new IllegalArgumentException("null value passed");
+		}
+		
+		ArrayList<Student> tempArray = new ArrayList<Student>(Arrays.asList(students));
+		if(!tempArray.contains(student)){
+			throw new IllegalArgumentException("Student not exist");
+		}
+		tempArray.remove(student);
+		students = (Student[]) tempArray.toArray();
+	
 	}
 
 	@Override
 	public void removeFromIndex(int index) {
 		// Add your implementation here
+	
+		if(index < 0 || index >= students.length){
+			throw new IllegalArgumentException("IllegalArgumentException index must be greater than 0 or " + (students.length-1));
+		}
+		
+		ArrayList<Student> tempArray = new ArrayList<Student>(Arrays.asList(students));
+		tempArray.remove(index);
+		students = (Student[]) tempArray.toArray();
 	}
 
 	@Override
 	public void removeFromElement(Student student) {
 		// Add your implementation here
+		
+		
+		if (student == null){
+			throw new IllegalArgumentException("null value passed");
+		}
+		
+		ArrayList<Student> tempArray = new ArrayList<Student>(Arrays.asList(students));
+		tempArray.remove(student);
+		students = (Student[]) tempArray.toArray();
+		
 	}
 
 	@Override
 	public void removeToIndex(int index) {
 		// Add your implementation here
+		if(index < 0 || index >= students.length){
+			throw new IllegalArgumentException("IllegalArgumentException index must be greater than 0 or " + (students.length-1));
+		}
+		
+		ArrayList<Student> tempArray = new ArrayList<Student>(Arrays.asList(students));
+		tempArray.remove(index);
+		students = (Student[]) tempArray.toArray();
 	}
 
 	@Override
 	public void removeToElement(Student student) {
 		// Add your implementation here
+		
+		if (student == null){
+			throw new IllegalArgumentException("null value passed");
+		}
+		
+		ArrayList<Student> tempArray = new ArrayList<Student>(Arrays.asList(students));
+		tempArray.remove(student);
+		students = (Student[]) tempArray.toArray();
 	}
 
 	@Override
 	public void bubbleSort() {
 		// Add your implementation here
+		   for (int i = 0; i < students.length-1; i++)      
+		 
+		       // Last i elements are already in place   
+		       for (int j = 0; j < students.length-i-1; j++) {
+		           if (students[j].compareTo(students[j+1])>1){
+		        	   Student temp = students[j];
+		        	   students[j] = students[j+1];
+		        	   students[j+1] = temp;
+		           }
+		       }
 	}
 
 	@Override
 	public Student[] getByBirthDate(Date date) {
 		// Add your implementation here
+
+		if (date == null){
+			throw new IllegalArgumentException("null value passed");
+		}
+//		Stream.of(students).filter(s->{s.getBirthDate().equals(date);});
+		
 		return null;
 	}
 
